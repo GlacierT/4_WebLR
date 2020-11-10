@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import { Navbar, Button, Jumbotron, Row, Col, Dropdown, DropdownButton } from 'react-bootstrap'
+import jsonData from './counties.json'
+const counties = jsonData.counties
 
 class App extends Component
 {
@@ -36,18 +38,7 @@ class App extends Component
           </Col>
           <Col xs lg="5">
             <DropdownButton id="dropdown-basic-button" title="Обласні центри">
-              <Dropdown.Item href="#/action-1">Київ</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Вінниця</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Дніпропетровськ</Dropdown.Item>
-              <Dropdown.Item href="#/action-4">Донецьк</Dropdown.Item>
-              <Dropdown.Item href="#/action-5">Житомир</Dropdown.Item>
-              <Dropdown.Item href="#/action-6">Запоріжжя</Dropdown.Item>
-              <Dropdown.Item href="#/action-7">Івано-Франківськ</Dropdown.Item>
-              <Dropdown.Item href="#/action-8">Кіровоград</Dropdown.Item>
-              <Dropdown.Item href="#/action-9">Луганськ</Dropdown.Item>
-              <Dropdown.Item href="#/action-10">Луцьк</Dropdown.Item>
-              <Dropdown.Item href="#/action-11">Львів</Dropdown.Item>
-              <Dropdown.Item href="#/action-12">Миколаїв</Dropdown.Item>
+              { counties.map(c => (<Dropdown.Item key={c.value} value={c.value}>{c.display}</Dropdown.Item>))}
             </DropdownButton>
           </Col>  
         </Row>  
